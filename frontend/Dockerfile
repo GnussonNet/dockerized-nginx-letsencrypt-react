@@ -14,12 +14,12 @@ FROM ubuntu:20.04
 #     && apt-get clean
 
 RUN apt update -y \
-        && apt install snapd -y \
-        && systemctl status snapd.socket \
-        && snap install core \
-        && snap refresh core \
-        && snap install --classic certbot \
-        && ln -s /snap/bin/certbot /usr/bin/certbot \
+        && apt install python3 python3-venv libaugeas0 -y \
+        && dnf install python3 augeas-libs \
+        && python3 -m venv /opt/certbot/ \
+        && /opt/certbot/bin/pip install --upgrade pip \
+        && /opt/certbot/bin/pip install certbot certbot-nginx \
+        && ln -s /opt/certbot/bin/certbot /usr/bin/certbot \
         && apt-get clean
 
 COPY --from=build /app/build /var/www/html
