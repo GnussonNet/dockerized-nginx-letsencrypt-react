@@ -1,4 +1,9 @@
-FROM ubuntu:18.04
+FROM node:alpine as build
+WORKDIR /app
+COPY ../frontend /app
+RUN npm install && npm run build
+
+FROM ubuntu:20.04
 
 RUN apt update -y \
     && apt install nginx curl vim -y \
@@ -8,6 +13,7 @@ RUN apt update -y \
     && apt-get install python-certbot-nginx -y \
     && apt-get clean
 
+COPY --from=build /app/build /var/www/html
 EXPOSE 80
 
 STOPSIGNAL SIGTERM
