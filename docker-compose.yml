@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: deploy/Dockerfile
+    image: ghcr.io/gnussonnet/dockerized-nginx-letsencrypt-react:latest
     ports:
       - '80:80'
       - '443:443'
