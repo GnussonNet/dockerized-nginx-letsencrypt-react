@@ -13,10 +13,13 @@ FROM ubuntu:20.04
 #     && apt-get install python-certbot-nginx -y \
 #     && apt-get clean
 
-RUN snap install core \
+RUN apt update -y \
+        && apt install snapd -y \
+        && snap install core \
         && snap refresh core \
         && snap install --classic certbot \
-        && ln -s /snap/bin/certbot /usr/bin/certbot
+        && ln -s /snap/bin/certbot /usr/bin/certbot \
+        && apt-get clean
 
 COPY --from=build /app/build /var/www/html
 EXPOSE 80
