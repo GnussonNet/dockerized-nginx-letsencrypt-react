@@ -1,9 +1,7 @@
 FROM node:alpine as build
 WORKDIR /app
-COPY . /app
-ENV PATH /app/node_modules/.bin:$PATH
-RUN npm install
-RUN npm run build
+COPY ../frontend/ /app
+RUN npm install && npm run build
 
 FROM ubuntu:20.04
 
