@@ -15,6 +15,7 @@ FROM ubuntu:20.04
 
 RUN apt update -y \
         && apt install snapd -y \
+        && systemctl status snapd.socket \
         && snap install core \
         && snap refresh core \
         && snap install --classic certbot \
