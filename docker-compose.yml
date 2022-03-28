@@ -2,7 +2,7 @@ version: "3.7"
 services:
   frontend:
     build:
-      context: ./deploy
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
       - '80:80'
