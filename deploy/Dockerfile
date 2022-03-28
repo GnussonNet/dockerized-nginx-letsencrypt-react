@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20
 
 RUN apt update -y \
     && apt install nginx curl vim -y \
