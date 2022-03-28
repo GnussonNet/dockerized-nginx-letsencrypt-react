@@ -1,6 +1,6 @@
 FROM node:14-stretch-slim as build
 WORKDIR /app
-COPY . /app
+COPY ./frontend /app
 RUN npm install && npm run build
 
 FROM ubuntu:18.04
