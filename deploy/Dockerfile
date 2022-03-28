@@ -11,7 +11,7 @@ RUN apt update -y \
     && apt-add-repository -r ppa:certbot/certbot -y \
     && apt-get update -y \
     && apt-get install python-certbot-nginx -y \
-    && apt-get clean
+    && apt-get clean -y
 
 # RUN apt update -y \
 #         && apt install python3 python3-venv libaugeas0 -y \
