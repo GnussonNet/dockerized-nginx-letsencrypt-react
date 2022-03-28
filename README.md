@@ -1,6 +1,6 @@
 # Dockerize React app inside Nginx using Let's Encrypt SSL certificate
 
-## Deplay and ssetup certificate
+## Deploy and setup certificate
 
 ```bash
 docker-compose up -d
