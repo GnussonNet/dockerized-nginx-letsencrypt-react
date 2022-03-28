@@ -1,7 +1,7 @@
-FROM node:alpine as build
-WORKDIR /app
-COPY . /app
-RUN npm install && npm run build
+# FROM node:alpine as build
+# WORKDIR /app
+# COPY . /app
+# RUN npm install && npm run build
 
 FROM ubuntu:18.04
 
@@ -21,7 +21,7 @@ RUN apt update -y \
 #         && ln -s /opt/certbot/bin/certbot /usr/bin/certbot \
 #         && apt-get clean
 
-COPY --from=build /app/build /usr/share/nginx/html
+# COPY --from=build /app/build /var/www/html
 EXPOSE 80
 
 STOPSIGNAL SIGTERM

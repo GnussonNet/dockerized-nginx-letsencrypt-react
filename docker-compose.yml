@@ -2,10 +2,11 @@ version: "3.7"
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./deploy
       dockerfile: Dockerfile
     ports:
       - '80:80'
       - '443:443'
     volumes:
-      - ./deploy/default.conf:/etc/nginx/sites-enabled/default
+      - ./frontend/build:/var/www/html
+      - ./deploy/default.conf:/etc/nginx/sites-available/default
