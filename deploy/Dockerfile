@@ -13,7 +13,7 @@ RUN apt update -y \
     && apt-get install python-certbot-nginx -y \
     && apt-get clean
 
-COPY --from=build /app/build /var/www/html
+COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 
 STOPSIGNAL SIGTERM
