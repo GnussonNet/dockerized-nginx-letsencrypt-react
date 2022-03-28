@@ -9,4 +9,4 @@ services:
       - '443:443'
     volumes:
       - ./frontend/build:/var/www/html
-      - ./deploy/default.conf:/etc/nginx/sites-enabled/default
+      - ./deploy/default.conf:/etc/nginx/sites-available/default
